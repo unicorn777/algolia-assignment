@@ -1,12 +1,12 @@
-# Crawler assignment: 🐍 `qy`
+# Crawler assignment: 🐍 `qyu`
 
-## What does qyu is doing
+## What's qyu
 
 qyu is an in-memory queue handling priority or popping jobs FIFO for same priorities.
 
 ## Events
 
-qyu is sending six different types of events:
+qyu can send six different types of events:
 * done: a job pushed in queue has been done
 * all-done: all jobs are over
 * error: a job pushed in queue has terminated with an error
