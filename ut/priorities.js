@@ -27,10 +27,10 @@ q.on('all-done', () => {
   console.log('All jobs are done');
   var error = false;
   expectedJobsOrder.forEach((jobId, index) => {
-    if (idsReturns[index] == undefined) {
+    if (idsReturns[index] === undefined) {
       console.log('Error: missing job...');
       error = true;
-    } else if (jobId != idsReturns[index]) {
+    } else if (jobId !== idsReturns[index]) {
       console.log(`Error: Expecting job identifier ${jobId} but got ${idsReturns[index]}`);
       error = true;
     }

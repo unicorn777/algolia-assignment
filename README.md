@@ -2,7 +2,7 @@
 
 ## What's qyu
 
-qyu is an in-memory queue handling priority or popping jobs FIFO for same priorities.
+qyu is a non-blocking in-memory queue handling priority or popping jobs FIFO for same priorities.
 
 ## Events
 

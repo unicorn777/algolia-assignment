@@ -30,11 +30,11 @@ q.on('error', function ( id, error ) {
   const res0 = await q.wait(id0);
   const res1 = await q.wait(id1);
   var error = false;
-  if ("world!" != res0.Hello) {
+  if ("world!" !== res0.Hello) {
     console.log(`Error: expecting 'world!' but got '${res0.Hello}'`);
     var error = true;
   }
-  if ("It was a looong job" != res1.Hello) {
+  if ("It was a looong job" !== res1.Hello) {
     console.log(`Error: expecting 'It was a looong job' but got ${res1.Hello}`);
     var error = true;
   }

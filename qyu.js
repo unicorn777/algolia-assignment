@@ -94,17 +94,15 @@ class QYU extends EventEmitter {
     }
 
     // Let's verify is this job has not already been completed to return the result
-    if (this._completedJobs[id] != undefined) {
+    if (this._completedJobs[id] !== undefined) {
       return this._completedJobs[id];
     }
 
-    if (this._runningJobs[id] != undefined) {
-      return await this._runningJobs[id].then((jobResult) => {
-        return jobResult;
-      });
+    if (this._runningJobs[id] !== undefined) {
+      return await this._runningJobs[id];
     }
 
-    if (this._tasks[id] != undefined) {
+    if (this._tasks[id] !== undefined) {
       throw new Error(`Task ${id} which has not yet been started`);
     }
 
@@ -122,7 +120,7 @@ class QYU extends EventEmitter {
       return null;
     }
     for (var i = 1; i <= 10; i++) {
-      if (this._queue[i] != undefined && this._queue[i].length) {
+      if (this._queue[i] !== undefined && this._queue[i].length) {
         const id = this._queue[i].shift();
         const job = this._tasks[id];
         delete this._tasks[id];
@@ -199,7 +197,7 @@ class QYU extends EventEmitter {
     if (this._statsPusher == null) {
       this._statsPusher = setInterval(() => {
         var elapsedTime = this._runningTime;
-        if (this._startTime != null) {
+        if (this._startTime !== null) {
           elapsedTime += Math.round(Date.now() / 1000) - this._startTime;
         }
         const nbJobsPerSecond = (this._nbJobsCompleted / elapsedTime).toFixed(4);
@@ -234,7 +232,7 @@ class QYU extends EventEmitter {
    * Pauses the stats timer in order to only calculate effective work time
    */
   _holdStatsTimer() {
-    if (this._startTime != null) {
+    if (this._startTime !== null) {
       this._runningTime += Math.round(Date.now() / 1000) - this._startTime;
       this._startTime = null;
     }
